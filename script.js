@@ -1,9 +1,48 @@
 const textarea = document.getElementById("textarea"); 
 const keyboard = document.getElementById("keyboard"); 
 
-function handler(event){
+
+//language 
+let lang;
+
+const getLangLocalStarage = () => {
+    if(localStorage.getItem("lang", lang)){
+        lang = localStorage.getItem("lang", lang); 
+    } else {
+        lang = "en"
+    }
+    console.log(lang); 
+}
+
+const setLangLocalStarage = () => {
+    localStorage.setItem("lang", lang);
+}
+
+window.addEventListener('beforeunload', setLangLocalStarage);
+window.addEventListener('load', getLangLocalStarage);
+
+
+
+const keys = {
+    en : [
+        {id : "Backquote", text : "`", classes : ["e-key", "key"]},
+        {id : "q", text : "q", classes : ["e-key", "key"]},
+        {id : "w", text : "w", classes : ["e-key", "key"]},
+    ],
+    ru : [
+        {id : "Backquote", text : "`", classes : ["e-key", "key"]},
+        {id : "q", text : "й", classes : ["e-key", "key"]},
+        {id : "w", text : "ц", classes : ["e-key", "key"]},
+    ]
+}
+
+function pressKeyboard(event){
     console.log(event.code);
     console.log(event.key);
+    if(event.altKey && event.shiftKey){
+        lang = lang === "en" ? "ru" : "en"; 
+        console.log(lang); 
+    }
 }
 
 function clickKeyboard(event){
@@ -16,4 +55,4 @@ function clickKeyboard(event){
 
 // textarea.addEventListener("keydown", handler);
 keyboard.addEventListener("click", clickKeyboard);
-document.body.addEventListener("keydown", handler);
+document.body.addEventListener("keydown", pressKeyboard);
