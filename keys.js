@@ -17,7 +17,7 @@ const keysModel = [
     },
 
     {
-        id : "1",
+        id : "Digit1",
         classes : ["e-key", "key"],
         row : 1,
         en : {
@@ -33,7 +33,7 @@ const keysModel = [
     },
 
     {
-        id : "2",
+        id : "Digit2",
         classes : ["e-key", "key"],
         row : 1,
         en : {
@@ -49,7 +49,7 @@ const keysModel = [
     },
 
     {
-        id : "3",
+        id : "Digit3",
         classes : ["e-key", "key"],
         row : 1,
         en : {
@@ -65,7 +65,7 @@ const keysModel = [
     },
 
     {
-        id : "4",
+        id : "Digit4",
         classes : ["e-key", "key"],
         row : 1,
         en : {
@@ -81,7 +81,7 @@ const keysModel = [
     },
 
     {
-        id : "5",
+        id : "Digit5",
         classes : ["e-key", "key"],
         row : 1,
         en : {
@@ -97,7 +97,7 @@ const keysModel = [
     },
 
     {
-        id : "6",
+        id : "Digit6",
         classes : ["e-key", "key"],
         row : 1,
         en : {
@@ -113,7 +113,7 @@ const keysModel = [
     },
 
     {
-        id : "7",
+        id : "Digit7",
         classes : ["e-key", "key"],
         row : 1,
         en : {
@@ -129,7 +129,7 @@ const keysModel = [
     },
 
     {
-        id : "8",
+        id : "Digit8",
         classes : ["e-key", "key"],
         row : 1,
         en : {
@@ -145,7 +145,7 @@ const keysModel = [
     },
 
     {
-        id : "9",
+        id : "Digit9",
         classes : ["e-key", "key"],
         row : 1,
         en : {
@@ -161,7 +161,7 @@ const keysModel = [
     },
 
     {
-        id : "0",
+        id : "Digit0",
         classes : ["e-key", "key"],
         row : 1,
         en : {
@@ -177,7 +177,7 @@ const keysModel = [
     },
 
     {
-        id : "minus",
+        id : "Minus",
         classes : ["e-key", "key"],
         row : 1,
         en : {
@@ -193,7 +193,7 @@ const keysModel = [
     },
 
     {
-        id : "plus",
+        id : "Equal",
         classes : ["e-key", "key"],
         row : 1,
         en : {
@@ -241,7 +241,7 @@ const keysModel = [
     },
 
     {
-        id : "q",
+        id : "KeyQ",
         classes : ["e-key", "key"],
         row : 2,
         en : {
@@ -257,7 +257,7 @@ const keysModel = [
     },
 
     {
-        id : "w",
+        id : "KeyW",
         classes : ["e-key", "key"],
         row : 2,
         en : {
@@ -273,7 +273,7 @@ const keysModel = [
     },
 
     {
-        id : "e",
+        id : "KeyE",
         classes : ["e-key", "key"],
         row : 2,
         en : {
@@ -289,7 +289,7 @@ const keysModel = [
     },
 
     {
-        id : "r",
+        id : "KeyR",
         classes : ["e-key", "key"],
         row : 2,
         en : {
@@ -305,7 +305,7 @@ const keysModel = [
     },
 
     {
-        id : "t",
+        id : "KeyT",
         classes : ["e-key", "key"],
         row : 2,
         en : {
@@ -321,7 +321,7 @@ const keysModel = [
     },
 
     {
-        id : "y",
+        id : "KeyY",
         classes : ["e-key", "key"],
         row : 2,
         en : {
@@ -337,7 +337,7 @@ const keysModel = [
     },
 
     {
-        id : "u",
+        id : "KeyU",
         classes : ["e-key", "key"],
         row : 2,
         en : {
@@ -353,7 +353,7 @@ const keysModel = [
     },
 
     {
-        id : "i",
+        id : "KeyI",
         classes : ["e-key", "key"],
         row : 2,
         en : {
@@ -369,7 +369,7 @@ const keysModel = [
     },
 
     {
-        id : "o",
+        id : "KeyO",
         classes : ["e-key", "key"],
         row : 2,
         en : {
@@ -385,7 +385,7 @@ const keysModel = [
     },
 
     {
-        id : "p",
+        id : "KeyP",
         classes : ["e-key", "key"],
         row : 2,
         en : {
@@ -401,7 +401,7 @@ const keysModel = [
     },
 
     {
-        id : "BracketLeft",
+        id : "BracketLeft", 
         classes : ["e-key", "key"],
         row : 2,
         en : {
@@ -433,7 +433,7 @@ const keysModel = [
     },
 
     {
-        id : "Backslash",
+        id : "Backslash", 
         classes : ["e-key", "key"],
         row : 2,
         en : {
@@ -449,7 +449,7 @@ const keysModel = [
     },
 
     {
-        id : "Delete",
+        id : "Delete", 
         classes : ["e-code", "key", "gray"],
         row : 2,
         en : {
@@ -481,7 +481,7 @@ const keysModel = [
     },
 
     {
-        id : "a",
+        id : "KeyA",
         classes : ["e-key", "key"],
         row : 3,
         en : {
@@ -497,7 +497,7 @@ const keysModel = [
     },
 
     {
-        id : "s",
+        id : "KeyS",
         classes : ["e-key", "key"],
         row : 3,
         en : {
@@ -513,7 +513,7 @@ const keysModel = [
     },
 
     {
-        id : "d",
+        id : "KeyD",
         classes : ["e-key", "key"],
         row : 3,
         en : {
@@ -529,7 +529,7 @@ const keysModel = [
     },
 
     {
-        id : "f",
+        id : "KeyF",
         classes : ["e-key", "key"],
         row : 3,
         en : {
@@ -545,7 +545,7 @@ const keysModel = [
     },
 
     {
-        id : "g",
+        id : "KeyG",
         classes : ["e-key", "key"],
         row : 3,
         en : {
@@ -561,7 +561,7 @@ const keysModel = [
     },
 
     {
-        id : "h",
+        id : "KeyH",
         classes : ["e-key", "key"],
         row : 3,
         en : {
@@ -577,7 +577,7 @@ const keysModel = [
     },
 
     {
-        id : "j",
+        id : "KeyJ",
         classes : ["e-key", "key"],
         row : 3,
         en : {
@@ -593,7 +593,7 @@ const keysModel = [
     },
 
     {
-        id : "k",
+        id : "KeyK",
         classes : ["e-key", "key"],
         row : 3,
         en : {
@@ -609,7 +609,7 @@ const keysModel = [
     },
 
     {
-        id : "l",
+        id : "KeyL",
         classes : ["e-key", "key"],
         row : 3,
         en : {
@@ -625,7 +625,7 @@ const keysModel = [
     },
 
     {
-        id : "Semicolon",
+        id : "Semicolon", 
         classes : ["e-key", "key"],
         row : 3,
         en : {
@@ -641,7 +641,7 @@ const keysModel = [
     },
 
     {
-        id : "Quote",
+        id : "Quote", 
         classes : ["e-key", "key"],
         row : 3,
         en : {
@@ -657,7 +657,7 @@ const keysModel = [
     },
 
     {
-        id : "Enter",
+        id : "Enter",  
         classes : ["e-code", "key", "gray"],
         row : 3,
         en : {
@@ -689,7 +689,7 @@ const keysModel = [
     },
 
     {
-        id : "z",
+        id : "KeyZ",
         classes : ["e-key", "key"],
         row : 4,
         en : {
@@ -705,7 +705,7 @@ const keysModel = [
     },
 
     {
-        id : "x",
+        id : "KeyX",
         classes : ["e-key", "key"],
         row : 4,
         en : {
@@ -721,7 +721,7 @@ const keysModel = [
     },
 
     {
-        id : "c",
+        id : "KeyC",
         classes : ["e-key", "key"],
         row : 4,
         en : {
@@ -737,7 +737,7 @@ const keysModel = [
     },
 
     {
-        id : "v",
+        id : "KeyV",
         classes : ["e-key", "key"],
         row : 4,
         en : {
@@ -753,7 +753,7 @@ const keysModel = [
     },
 
     {
-        id : "b",
+        id : "KeyB",
         classes : ["e-key", "key"],
         row : 4,
         en : {
@@ -769,7 +769,7 @@ const keysModel = [
     },
 
     {
-        id : "n",
+        id : "KeyN",
         classes : ["e-key", "key"],
         row : 4,
         en : {
@@ -785,7 +785,7 @@ const keysModel = [
     },
 
     {
-        id : "m",
+        id : "KeyM",
         classes : ["e-key", "key"],
         row : 4,
         en : {
@@ -801,7 +801,7 @@ const keysModel = [
     },
 
     {
-        id : "Comma",
+        id : "Comma", 
         classes : ["e-key", "key"],
         row : 4,
         en : {
@@ -833,7 +833,7 @@ const keysModel = [
     },
 
     {
-        id : "Slash",
+        id : "Slash", 
         classes : ["e-key", "key"],
         row : 4,
         en : {

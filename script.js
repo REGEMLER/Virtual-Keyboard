@@ -1,5 +1,6 @@
 import keysModel from './keys.js';
 let isCaps = false; 
+let iShift = false; 
 
 //language 
 let lang;
@@ -25,7 +26,7 @@ window.addEventListener('beforeunload', setLangLocalStarage);
 window.addEventListener('load', loader);
 
 
-
+//creating
 function createKey(i){
     const div = document.createElement("DIV"); 
     div.id = keysModel[i].id; 
@@ -106,20 +107,107 @@ function create(){
 }
 
 
+//keypress
 
 
 function pressKeyboard(event){
-    console.log(event.code);
-    console.log(event.key);
+
+    const key = document.getElementById(event.code); 
+    key.classList.add("active");
+
     if(event.altKey && event.shiftKey){
-        lang = lang === "en" ? "ru" : "en"; 
-        console.log(lang); 
+        lang = lang === "en" ? "ru" : "en";  
+        const key1 = document.getElementById("AltLeft"); 
+        key1.classList.add("active"); 
+        const key2 = document.getElementById("ShiftLeft"); 
+        key2.classList.add("active"); 
+        return;  
     }
-    if(event.key ==="CapsLock"){
+
+    if(event.code ==="CapsLock"){ 
+        const allKeys = [...document.querySelectorAll(".key")];
         isCaps = !isCaps; 
-        console.log(isCaps); 
+        for(let key of allKeys) {
+            let keyInModel = keysModel.find(item => item.id == key.id);
+            key.textContent = isCaps ? keyInModel[lang].textCaps : keyInModel[lang].text; 
+        }
+        return; 
+    }
+
+    if((event.code ==="ShiftLeft" || event.code ==="ShiftRight") && !event.altKey ){
+        const allKeys = [...document.querySelectorAll(".key")];
+        iShift = true;
+        for(let key of allKeys) {
+            let keyInModel = keysModel.find(item => item.id == key.id);
+            key.textContent = keyInModel[lang].textShift; 
+        }
+        return; 
+    }
+
+    if(event.code === "Enter"){
+        textarea.innerHTML += "\n"; 
+        return;
+    }
+
+    if(event.code === "Backspace"){
+        let inner  = textarea.innerHTML.split("");
+        inner.pop(); 
+        let newInner = inner.join("");
+        textarea.innerHTML = newInner; 
+        return;
+    }
+
+    if(event.code === "Tab"){
+        textarea.innerHTML += "    "; 
+        return;
+    }
+
+    if(event.code === "Delete" || event.ctrlKey || (event.altKey && !event.shiftKey)){
+        return;
+    }
+
+
+    const keyInModel = keysModel.find(item => item.id === event.code);
+    if(keyInModel){
+        const textarea = document.getElementById("textarea");
+        if(event.shiftKey){
+            textarea.innerHTML += keyInModel[lang].textShift; 
+        } else {
+            textarea.innerHTML += isCaps ? keyInModel[lang].textCaps : keyInModel[lang].text; 
+        }
     }
 }
+
+
+function deleteClass(event){
+    const key = document.getElementById(event.code); 
+    key.classList.remove("active"); 
+
+    if(event.altKey && event.shiftKey){
+        const key1 = document.getElementById("AltLeft"); 
+        key1.classList.remove("active"); 
+        const key2 = document.getElementById("ShiftLeft"); 
+        key2.classList.remove("active"); 
+        const wrapper = document.getElementById("wrapper");
+        wrapper.remove();
+        create(); 
+        return;
+    }
+
+    if((event.code ==="ShiftLeft" || event.code ==="ShiftRight")){
+        iShift = false;
+        const allKeys = [...document.querySelectorAll(".key")];
+        for(let key of allKeys) {
+            let keyInModel = keysModel.find(item => item.id == key.id);
+            key.textContent = keyInModel[lang].text; 
+        }
+        return; 
+    }
+}
+
+
+
+//clicking
 
 function clickKeyboard(event){
 
@@ -165,6 +253,7 @@ function clickKeyboard(event){
 
 function mouseDownShift(event){
     if(event.target.id === "ShiftRight" || event.target.id === "ShiftLeft"){
+        iShift = true;
         const keys = [...document.querySelectorAll(".key")]; 
         for(let key of keys) {
             let keyInModel = keysModel.find(item => item.id == key.id);
@@ -175,6 +264,7 @@ function mouseDownShift(event){
 
 function mouseUpShift(event){
     if(event.target.id === "ShiftRight" || event.target.id === "ShiftLeft"){
+        iShift = false;
         const keys = [...document.querySelectorAll(".key")]; 
         for(let key of keys) {
             let keyInModel = keysModel.find(item => item.id == key.id);
@@ -185,3 +275,4 @@ function mouseUpShift(event){
 
 
 document.body.addEventListener("keydown", pressKeyboard);
+document.body.addEventListener("keyup", deleteClass);
