@@ -1,9 +1,5 @@
 import keysModel from './keys.js';
-
-
 let isCaps = false; 
-let isShift = false; 
-
 
 //language 
 let lang;
@@ -104,7 +100,9 @@ function create(){
     wrapper.append(content);
     document.body.prepend(wrapper); 
 
-    main.addEventListener("click", clickKeyboard)
+    main.addEventListener("click", clickKeyboard);
+    main.addEventListener("mousedown", mouseDownShift);
+    main.addEventListener("mouseup", mouseUpShift);
 }
 
 
@@ -124,18 +122,66 @@ function pressKeyboard(event){
 }
 
 function clickKeyboard(event){
+
+    if(!event.target.classList.contains("key")){
+        return;
+    }
+
+    const textarea = document.getElementById("textarea");
+    const allKeys = [...document.querySelectorAll(".key")];
+    const keyPressed = allKeys.find(item => item.id == event.target.id); 
+
+
     if(event.target.classList.contains("e-key")){
-        const allKeys = [...document.querySelectorAll(".key")];
-        const keyPressed = allKeys.find(item => item.id == event.target.id); 
-        const keyPressedInModel = keysModel.find(item => item.id == event.target.id);
-        keyPressed.textContent = isCaps? keyPressedInModel[lang].textCaps : keyPressedInModel[lang].text;  
-        console.log(keyPressed); 
-        console.log(keyPressedInModel);
-        console.log(`This is key ${event.target.id}`)
+        textarea.innerHTML += keyPressed.textContent; 
+       
     } else if(event.target.classList.contains("e-code")){
-        console.log(`This is code ${event.target.id}`)
+
+        if(keyPressed.id === "Tab") {
+            textarea.innerHTML += "    "; 
+        }
+        if(keyPressed.id === "Backspace") {
+            let inner  = textarea.innerHTML.split("");
+            inner.pop(); 
+            let newInner = inner.join("");
+            textarea.innerHTML = newInner; 
+        }
+        if(keyPressed.id === "Delete") {
+            console.log(event.target);
+        }
+        if(keyPressed.id === "Enter") {
+            textarea.innerHTML += "\n"; 
+        }
+        if(keyPressed.id === "CapsLock") {
+            const keys = [...document.querySelectorAll(".key")]; 
+            isCaps = !isCaps; 
+            for(let key of keys) {
+                let keyInModel = keysModel.find(item => item.id == key.id);
+                key.textContent = isCaps ? keyInModel[lang].textCaps : keyInModel[lang].text; 
+            }
+        }        
     } 
 }
 
-;
+function mouseDownShift(event){
+    if(event.target.id === "ShiftRight" || event.target.id === "ShiftLeft"){
+        const keys = [...document.querySelectorAll(".key")]; 
+        for(let key of keys) {
+            let keyInModel = keysModel.find(item => item.id == key.id);
+            key.textContent = keyInModel[lang].textShift; 
+        }
+    }
+}
+
+function mouseUpShift(event){
+    if(event.target.id === "ShiftRight" || event.target.id === "ShiftLeft"){
+        const keys = [...document.querySelectorAll(".key")]; 
+        for(let key of keys) {
+            let keyInModel = keysModel.find(item => item.id == key.id);
+            key.textContent = keyInModel[lang].text; 
+        }
+    }
+}
+
+
 document.body.addEventListener("keydown", pressKeyboard);

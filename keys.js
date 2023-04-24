@@ -210,7 +210,7 @@ const keysModel = [
 
     {
         id : "Backspace",
-        classes : ["e-key", "key", "gray"],
+        classes : ["e-code", "key", "gray"],
         row : 1,
         en : {
             text : "Backspace",
@@ -226,7 +226,7 @@ const keysModel = [
 
     {
         id : "Tab",
-        classes : ["e-key", "key", "gray"],
+        classes : ["e-code", "key", "gray"],
         row : 2,
         en : {
             text : "Tab",
@@ -450,7 +450,7 @@ const keysModel = [
 
     {
         id : "Delete",
-        classes : ["e-key", "key", "gray"],
+        classes : ["e-code", "key", "gray"],
         row : 2,
         en : {
             text : "Delete",
@@ -466,7 +466,7 @@ const keysModel = [
 
     {
         id : "CapsLock",
-        classes : ["e-key", "key", "gray"],
+        classes : ["e-code", "key", "gray"],
         row : 3,
         en : {
             text : "CapsLock",
@@ -658,7 +658,7 @@ const keysModel = [
 
     {
         id : "Enter",
-        classes : ["e-key", "key", "gray"],
+        classes : ["e-code", "key", "gray"],
         row : 3,
         en : {
             text : "Enter",
@@ -850,7 +850,7 @@ const keysModel = [
 
     {
         id : "ArrowUp",
-        classes : ["e-key", "key", "gray"],
+        classes : ["e-code", "key", "gray"],
         row : 4,
         en : {
             text : "⬆",
@@ -898,7 +898,7 @@ const keysModel = [
 
     {
         id : "Win",
-        classes : ["e-key", "key", "gray"],
+        classes : ["e-code", "key", "gray"],
         row : 5,
         en : {
             text : "Win",
@@ -933,14 +933,14 @@ const keysModel = [
         classes : ["e-key", "key", "gray"],
         row : 5,
         en : {
-            text : "Space",
-            textCaps : "Space",
-            textShift : "Space"
+            text : " ",
+            textCaps : " ",
+            textShift : " "
         },
         ru : {
-            text : "Space",
-            textCaps : "Space",
-            textShift : "Space"
+            text : " ",
+            textCaps : " ",
+            textShift : " "
         }
     },
 
@@ -962,7 +962,7 @@ const keysModel = [
 
     {
         id : "ArrowLeft",
-        classes : ["e-key", "key", "gray"],
+        classes : ["e-code", "key", "gray"],
         row : 5,
         en : {
             text : "⬅",
@@ -978,7 +978,7 @@ const keysModel = [
 
     {
         id : "ArrowDown",
-        classes : ["e-key", "key", "gray"],
+        classes : ["e-code", "key", "gray"],
         row : 5,
         en : {
             text : "⬇",
@@ -994,7 +994,7 @@ const keysModel = [
 
     {
         id : "ArrowRight",
-        classes : ["e-key", "key", "gray"],
+        classes : ["e-code", "key", "gray"],
         row : 5,
         en : {
             text : "➠",
