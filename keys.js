@@ -853,14 +853,14 @@ const keysModel = [
         classes : ["e-key", "key", "gray"],
         row : 4,
         en : {
-            text : "&uArr;",
-            textCaps : "&uArr;",
-            textShift : "&uArr;"
+            text : "⬆",
+            textCaps : "⬆",
+            textShift : "⬆"
         },
         ru : {
-            text : "&uArr;",
-            textCaps : "&uArr;",
-            textShift : "&uArr;"
+            text : "⬆",
+            textCaps : "⬆",
+            textShift : "⬆"
         }
     },
 
@@ -965,14 +965,14 @@ const keysModel = [
         classes : ["e-key", "key", "gray"],
         row : 5,
         en : {
-            text : "&lArr;",
-            textCaps : "&lArr;",
-            textShift : "&lArr;"
+            text : "⬅",
+            textCaps : "⬅",
+            textShift : "⬅",
         },
         ru : {
-            text : "&lArr;",
-            textCaps : "&lArr;",
-            textShift : "&lArr;"
+            text : "⬅",
+            textCaps : "⬅",
+            textShift : "⬅"
         }
     },
 
@@ -981,14 +981,14 @@ const keysModel = [
         classes : ["e-key", "key", "gray"],
         row : 5,
         en : {
-            text : "&dArr;",
-            textCaps : "&dArr;",
-            textShift : "&dArr;"
+            text : "⬇",
+            textCaps : "⬇",
+            textShift : "⬇"
         },
         ru : {
-            text : "&dArr;",
-            textCaps : "&dArr;",
-            textShift : "&dArr;"
+            text : "⬇",
+            textCaps : "⬇",
+            textShift : "⬇"
         }
     },
 
@@ -997,14 +997,14 @@ const keysModel = [
         classes : ["e-key", "key", "gray"],
         row : 5,
         en : {
-            text : "&rArr;",
-            textCaps : "&rArr;",
-            textShift : "&rArr;"
+            text : "➠",
+            textCaps : "➠",
+            textShift : "➠"
         },
         ru : {
-            text : "&rArr;",
-            textCaps : "&rArr;",
-            textShift : "&rArr;"
+            text : "➠",
+            textCaps : "➠",
+            textShift : "➠"
         }
     },
 
