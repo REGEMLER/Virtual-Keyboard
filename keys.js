@@ -2,7 +2,7 @@ const keysModel = [
 
     {
         id : "Backquote",
-        classes : ["e-key", "key"],
+        classes : ["e-key", "key", "caps-shift-special"],
         row : 1,
         en : {
             text : "`",
@@ -18,7 +18,7 @@ const keysModel = [
 
     {
         id : "Digit1",
-        classes : ["e-key", "key"],
+        classes : ["e-key", "key", "caps-shift-changed"],
         row : 1,
         en : {
             text : "1",
@@ -34,7 +34,7 @@ const keysModel = [
 
     {
         id : "Digit2",
-        classes : ["e-key", "key"],
+        classes : ["e-key", "key", "caps-shift-changed"],
         row : 1,
         en : {
             text : "2",
@@ -50,7 +50,7 @@ const keysModel = [
 
     {
         id : "Digit3",
-        classes : ["e-key", "key"],
+        classes : ["e-key", "key", "caps-shift-changed"],
         row : 1,
         en : {
             text : "3",
@@ -66,7 +66,7 @@ const keysModel = [
 
     {
         id : "Digit4",
-        classes : ["e-key", "key"],
+        classes : ["e-key", "key", "caps-shift-changed"],
         row : 1,
         en : {
             text : "4",
@@ -82,7 +82,7 @@ const keysModel = [
 
     {
         id : "Digit5",
-        classes : ["e-key", "key"],
+        classes : ["e-key", "key", "caps-shift-changed"],
         row : 1,
         en : {
             text : "5",
@@ -98,7 +98,7 @@ const keysModel = [
 
     {
         id : "Digit6",
-        classes : ["e-key", "key"],
+        classes : ["e-key", "key", "caps-shift-changed"],
         row : 1,
         en : {
             text : "6",
@@ -114,7 +114,7 @@ const keysModel = [
 
     {
         id : "Digit7",
-        classes : ["e-key", "key"],
+        classes : ["e-key", "key", "caps-shift-changed"],
         row : 1,
         en : {
             text : "7",
@@ -130,7 +130,7 @@ const keysModel = [
 
     {
         id : "Digit8",
-        classes : ["e-key", "key"],
+        classes : ["e-key", "key", "caps-shift-changed"],
         row : 1,
         en : {
             text : "8",
@@ -146,7 +146,7 @@ const keysModel = [
 
     {
         id : "Digit9",
-        classes : ["e-key", "key"],
+        classes : ["e-key", "key", "caps-shift-changed"],
         row : 1,
         en : {
             text : "9",
@@ -162,7 +162,7 @@ const keysModel = [
 
     {
         id : "Digit0",
-        classes : ["e-key", "key"],
+        classes : ["e-key", "key", "caps-shift-changed"],
         row : 1,
         en : {
             text : "0",
@@ -178,7 +178,7 @@ const keysModel = [
 
     {
         id : "Minus",
-        classes : ["e-key", "key"],
+        classes : ["e-key", "key", "caps-shift-changed"],
         row : 1,
         en : {
             text : "-",
@@ -194,7 +194,7 @@ const keysModel = [
 
     {
         id : "Equal",
-        classes : ["e-key", "key"],
+        classes : ["e-key", "key", "caps-shift-changed"],
         row : 1,
         en : {
             text : "=",
@@ -242,7 +242,7 @@ const keysModel = [
 
     {
         id : "KeyQ",
-        classes : ["e-key", "key"],
+        classes : ["e-key", "key", "caps-shift-not-changed"],
         row : 2,
         en : {
             text : "q",
@@ -258,7 +258,7 @@ const keysModel = [
 
     {
         id : "KeyW",
-        classes : ["e-key", "key"],
+        classes : ["e-key", "key", "caps-shift-not-changed"],
         row : 2,
         en : {
             text : "w",
@@ -274,7 +274,7 @@ const keysModel = [
 
     {
         id : "KeyE",
-        classes : ["e-key", "key"],
+        classes : ["e-key", "key", "caps-shift-not-changed"],
         row : 2,
         en : {
             text : "e",
@@ -290,7 +290,7 @@ const keysModel = [
 
     {
         id : "KeyR",
-        classes : ["e-key", "key"],
+        classes : ["e-key", "key", "caps-shift-not-changed"],
         row : 2,
         en : {
             text : "r",
@@ -306,7 +306,7 @@ const keysModel = [
 
     {
         id : "KeyT",
-        classes : ["e-key", "key"],
+        classes : ["e-key", "key", "caps-shift-not-changed"],
         row : 2,
         en : {
             text : "t",
@@ -322,7 +322,7 @@ const keysModel = [
 
     {
         id : "KeyY",
-        classes : ["e-key", "key"],
+        classes : ["e-key", "key", "caps-shift-not-changed"],
         row : 2,
         en : {
             text : "y",
@@ -338,7 +338,7 @@ const keysModel = [
 
     {
         id : "KeyU",
-        classes : ["e-key", "key"],
+        classes : ["e-key", "key", "caps-shift-not-changed"],
         row : 2,
         en : {
             text : "u",
@@ -354,7 +354,7 @@ const keysModel = [
 
     {
         id : "KeyI",
-        classes : ["e-key", "key"],
+        classes : ["e-key", "key", "caps-shift-not-changed"],
         row : 2,
         en : {
             text : "i",
@@ -370,7 +370,7 @@ const keysModel = [
 
     {
         id : "KeyO",
-        classes : ["e-key", "key"],
+        classes : ["e-key", "key", "caps-shift-not-changed"],
         row : 2,
         en : {
             text : "o",
@@ -386,7 +386,7 @@ const keysModel = [
 
     {
         id : "KeyP",
-        classes : ["e-key", "key"],
+        classes : ["e-key", "key", "caps-shift-not-changed"],
         row : 2,
         en : {
             text : "p",
@@ -402,7 +402,7 @@ const keysModel = [
 
     {
         id : "BracketLeft", 
-        classes : ["e-key", "key"],
+        classes : ["e-key", "key", "caps-shift-special"],
         row : 2,
         en : {
             text : "[",
@@ -418,7 +418,7 @@ const keysModel = [
 
     {
         id : "BracketRight",
-        classes : ["e-key", "key"],
+        classes : ["e-key", "key", "caps-shift-special"],
         row : 2,
         en : {
             text : "]",
@@ -434,7 +434,7 @@ const keysModel = [
 
     {
         id : "Backslash", 
-        classes : ["e-key", "key"],
+        classes : ["e-key", "key", "caps-shift-changed"],
         row : 2,
         en : {
             text : "\\",
@@ -482,7 +482,7 @@ const keysModel = [
 
     {
         id : "KeyA",
-        classes : ["e-key", "key"],
+        classes : ["e-key", "key", "caps-shift-not-changed"],
         row : 3,
         en : {
             text : "a",
@@ -498,7 +498,7 @@ const keysModel = [
 
     {
         id : "KeyS",
-        classes : ["e-key", "key"],
+        classes : ["e-key", "key", "caps-shift-not-changed"],
         row : 3,
         en : {
             text : "s",
@@ -514,7 +514,7 @@ const keysModel = [
 
     {
         id : "KeyD",
-        classes : ["e-key", "key"],
+        classes : ["e-key", "key", "caps-shift-not-changed"],
         row : 3,
         en : {
             text : "d",
@@ -530,7 +530,7 @@ const keysModel = [
 
     {
         id : "KeyF",
-        classes : ["e-key", "key"],
+        classes : ["e-key", "key", "caps-shift-not-changed"],
         row : 3,
         en : {
             text : "f",
@@ -546,7 +546,7 @@ const keysModel = [
 
     {
         id : "KeyG",
-        classes : ["e-key", "key"],
+        classes : ["e-key", "key", "caps-shift-not-changed"],
         row : 3,
         en : {
             text : "g",
@@ -562,7 +562,7 @@ const keysModel = [
 
     {
         id : "KeyH",
-        classes : ["e-key", "key"],
+        classes : ["e-key", "key", "caps-shift-not-changed"],
         row : 3,
         en : {
             text : "h",
@@ -578,7 +578,7 @@ const keysModel = [
 
     {
         id : "KeyJ",
-        classes : ["e-key", "key"],
+        classes : ["e-key", "key", "caps-shift-not-changed"],
         row : 3,
         en : {
             text : "j",
@@ -594,7 +594,7 @@ const keysModel = [
 
     {
         id : "KeyK",
-        classes : ["e-key", "key"],
+        classes : ["e-key", "key", "caps-shift-not-changed"],
         row : 3,
         en : {
             text : "k",
@@ -610,7 +610,7 @@ const keysModel = [
 
     {
         id : "KeyL",
-        classes : ["e-key", "key"],
+        classes : ["e-key", "key", "caps-shift-not-changed"],
         row : 3,
         en : {
             text : "l",
@@ -626,7 +626,7 @@ const keysModel = [
 
     {
         id : "Semicolon", 
-        classes : ["e-key", "key"],
+        classes : ["e-key", "key", "caps-shift-special"],
         row : 3,
         en : {
             text : ";",
@@ -642,7 +642,7 @@ const keysModel = [
 
     {
         id : "Quote", 
-        classes : ["e-key", "key"],
+        classes : ["e-key", "key", "caps-shift-special"],
         row : 3,
         en : {
             text : "'",
@@ -690,7 +690,7 @@ const keysModel = [
 
     {
         id : "KeyZ",
-        classes : ["e-key", "key"],
+        classes : ["e-key", "key", "caps-shift-not-changed"],
         row : 4,
         en : {
             text : "z",
@@ -706,7 +706,7 @@ const keysModel = [
 
     {
         id : "KeyX",
-        classes : ["e-key", "key"],
+        classes : ["e-key", "key", "caps-shift-not-changed"],
         row : 4,
         en : {
             text : "x",
@@ -722,7 +722,7 @@ const keysModel = [
 
     {
         id : "KeyC",
-        classes : ["e-key", "key"],
+        classes : ["e-key", "key", "caps-shift-not-changed"],
         row : 4,
         en : {
             text : "c",
@@ -738,7 +738,7 @@ const keysModel = [
 
     {
         id : "KeyV",
-        classes : ["e-key", "key"],
+        classes : ["e-key", "key", "caps-shift-not-changed"],
         row : 4,
         en : {
             text : "v",
@@ -754,7 +754,7 @@ const keysModel = [
 
     {
         id : "KeyB",
-        classes : ["e-key", "key"],
+        classes : ["e-key", "key", "caps-shift-not-changed"],
         row : 4,
         en : {
             text : "b",
@@ -770,7 +770,7 @@ const keysModel = [
 
     {
         id : "KeyN",
-        classes : ["e-key", "key"],
+        classes : ["e-key", "key", "caps-shift-not-changed"],
         row : 4,
         en : {
             text : "n",
@@ -786,7 +786,7 @@ const keysModel = [
 
     {
         id : "KeyM",
-        classes : ["e-key", "key"],
+        classes : ["e-key", "key", "caps-shift-not-changed"],
         row : 4,
         en : {
             text : "m",
@@ -802,7 +802,7 @@ const keysModel = [
 
     {
         id : "Comma", 
-        classes : ["e-key", "key"],
+        classes : ["e-key", "key", "caps-shift-special"],
         row : 4,
         en : {
             text : ",",
@@ -818,7 +818,7 @@ const keysModel = [
 
     {
         id : "Period",
-        classes : ["e-key", "key"],
+        classes : ["e-key", "key", "caps-shift-special"],
         row : 4,
         en : {
             text : ".",
@@ -834,7 +834,7 @@ const keysModel = [
 
     {
         id : "Slash", 
-        classes : ["e-key", "key"],
+        classes : ["e-key", "key", "caps-shift-changed"],
         row : 4,
         en : {
             text : "/",
@@ -850,7 +850,7 @@ const keysModel = [
 
     {
         id : "ArrowUp",
-        classes : ["e-code", "key", "gray"],
+        classes : ["e-key", "key", "gray"],
         row : 4,
         en : {
             text : "⬆",
@@ -962,7 +962,7 @@ const keysModel = [
 
     {
         id : "ArrowLeft",
-        classes : ["e-code", "key", "gray"],
+        classes : ["e-key", "key", "gray"],
         row : 5,
         en : {
             text : "⬅",
@@ -978,7 +978,7 @@ const keysModel = [
 
     {
         id : "ArrowDown",
-        classes : ["e-code", "key", "gray"],
+        classes : ["e-key", "key", "gray"],
         row : 5,
         en : {
             text : "⬇",
@@ -994,7 +994,7 @@ const keysModel = [
 
     {
         id : "ArrowRight",
-        classes : ["e-code", "key", "gray"],
+        classes : ["e-key", "key", "gray"],
         row : 5,
         en : {
             text : "➠",
