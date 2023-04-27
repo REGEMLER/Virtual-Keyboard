@@ -103,11 +103,17 @@ function create(){
     main.addEventListener("click", clickKeyboard);
     main.addEventListener("mousedown", mouseDownShift);
     main.addEventListener("mouseup", mouseUpShift);
+    textarea.addEventListener("focus", textAreaBlur);
+}
+
+function textAreaBlur(){
+    const textarea = document.getElementById("textarea");
+    textarea.blur()
 }
 
 
-//keypress
 
+//keypress
 
 function pressKeyboard(event){
 
