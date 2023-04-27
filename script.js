@@ -1,6 +1,5 @@
 import keysModel from './keys.js';
 let isCaps = false; 
-let iShift = false; 
 
 //language 
 let lang;
@@ -114,6 +113,7 @@ function pressKeyboard(event){
 
     const key = document.getElementById(event.code); 
     key.classList.add("active");
+    const textarea = document.getElementById("textarea");
 
     if(event.altKey && event.shiftKey){
         lang = lang === "en" ? "ru" : "en";  
@@ -140,7 +140,6 @@ function pressKeyboard(event){
     }
 
     if((event.code ==="ShiftLeft" || event.code ==="ShiftRight") && !event.altKey ){
-        iShift = true;
         if(!isCaps){
             const keys = [...document.querySelectorAll(".key")]; 
             for(let key of keys) {
@@ -221,7 +220,6 @@ function deleteClass(event){
     }
 
     if((event.code ==="ShiftLeft" || event.code ==="ShiftRight")){
-        iShift = false;
         if(!isCaps){
             const keys = [...document.querySelectorAll(".key")]; 
             for(let key of keys) {
@@ -303,7 +301,6 @@ function clickKeyboard(event){
 
 function mouseDownShift(event){
     if(event.target.id === "ShiftRight" || event.target.id === "ShiftLeft"){
-        iShift = true;
         if(!isCaps){
             const keys = [...document.querySelectorAll(".key")]; 
             for(let key of keys) {
@@ -332,7 +329,6 @@ function mouseDownShift(event){
 
 function mouseUpShift(event){
     if(event.target.id === "ShiftRight" || event.target.id === "ShiftLeft"){
-        iShift = false;
         if(!isCaps){
             const keys = [...document.querySelectorAll(".key")]; 
             for(let key of keys) {
