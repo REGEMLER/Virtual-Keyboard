@@ -1,5 +1,6 @@
 import keysModel from './keys.js';
 let isCaps = false;
+let cursor = 0;
 
 // language
 let lang;
@@ -28,6 +29,11 @@ function getCarPos(item) {
   return 0;
 }
 
+function setCursor() {
+  const TA = document.getElementById('textarea');
+  cursor = getCarPos(TA);
+}
+
 function clickKeyboard(event) {
   if (!event.target.classList.contains('key')) {
     return;
@@ -37,16 +43,12 @@ function clickKeyboard(event) {
   let inner = textarea.innerHTML.split('');
   const allKeys = [...document.querySelectorAll('.key')];
   const keyPressed = allKeys.find(item => item.id === event.target.id);
-  const carette = getCarPos(textarea);
 
   if (event.target.classList.contains('e-key')) {
-    if (carette) {
-      inner.splice(carette, 0, keyPressed.textContent);
-      let newInner = inner.join('');
-      textarea.innerHTML = newInner;
-    } else {
-      textarea.innerHTML += keyPressed.textContent;
-    }
+    inner.splice(cursor, 0, keyPressed.textContent);
+    let newInner = inner.join('');
+    textarea.innerHTML = newInner;
+    cursor += 1;
   } else if (event.target.classList.contains('e-code')) {
     if (keyPressed.id === 'Tab') {
       textarea.innerHTML += '    ';
@@ -57,7 +59,7 @@ function clickKeyboard(event) {
       textarea.innerHTML = newInner;
     }
     if (keyPressed.id === 'Delete') {
-      inner.splice(carette, 1);
+      inner.splice(cursor, 1);
       let newInner = inner.join('');
       textarea.innerHTML = newInner;
     }
@@ -221,7 +223,7 @@ function create() {
   main.addEventListener('click', clickKeyboard);
   main.addEventListener('mousedown', mouseDownShift);
   main.addEventListener('mouseup', mouseUpShift);
-  // textarea.addEventListener("focus", textAreaBlur);
+  textarea.addEventListener('blur', setCursor);
 }
 
 function loader() {
