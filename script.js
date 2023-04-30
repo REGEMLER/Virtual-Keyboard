@@ -34,7 +34,7 @@ function setCursor() {
   cursor = getCarPos(TA);
 }
 
-// ShiftKey
+// ShiftKey and Caps
 function specialShift(t1, t2) {
   const keysChanged = [...document.querySelectorAll('.caps-shift-changed')];
   const keysNotChanged = [...document.querySelectorAll('.caps-shift-not-changed')];
@@ -62,6 +62,22 @@ function regularShift(t) {
     let keyInModel = keysModel.find(item => item.id === key.id);
     let newKey = key;
     newKey.textContent = keyInModel[lang][t];
+  });
+}
+
+function regularCaps() {
+  const keys = [...document.querySelectorAll('.key')];
+  const caps = document.getElementById('CapsLock');
+  isCaps = !isCaps;
+  if (isCaps) {
+    caps.classList.add('active');
+  } else {
+    caps.classList.remove('active');
+  }
+  keys.forEach(key => {
+    let keyInModel = keysModel.find(item => item.id === key.id);
+    let newKey = key;
+    newKey.textContent = isCaps ? keyInModel[lang].textCaps : keyInModel[lang].text;
   });
 }
 
@@ -105,19 +121,20 @@ function clickKeyboard(event) {
       clickKey(inner, textarea, 0, '\n');
     }
     if (keyPressed.id === 'CapsLock') {
-      const keys = [...document.querySelectorAll('.key')];
-      const caps = document.getElementById('CapsLock');
-      isCaps = !isCaps;
-      if (isCaps) {
-        caps.classList.add('active');
-      } else {
-        caps.classList.remove('active');
-      }
-      keys.forEach(key => {
-        let keyInModel = keysModel.find(item => item.id === key.id);
-        let newKey = key;
-        newKey.textContent = isCaps ? keyInModel[lang].textCaps : keyInModel[lang].text;
-      });
+      regularCaps();
+      // const keys = [...document.querySelectorAll('.key')];
+      // const caps = document.getElementById('CapsLock');
+      // isCaps = !isCaps;
+      // if (isCaps) {
+      //   caps.classList.add('active');
+      // } else {
+      //   caps.classList.remove('active');
+      // }
+      // keys.forEach(key => {
+      //   let keyInModel = keysModel.find(item => item.id === key.id);
+      //   let newKey = key;
+      //   newKey.textContent = isCaps ? keyInModel[lang].textCaps : keyInModel[lang].text;
+      // });
     }
   }
 }
@@ -126,12 +143,6 @@ function mouseDownShift(event) {
   if (event.target.id === 'ShiftRight' || event.target.id === 'ShiftLeft') {
     if (!isCaps) {
       regularShift('textShift');
-      // const keys = [...document.querySelectorAll('.key')];
-      // keys.forEach(key => {
-      //   let keyInModel = keysModel.find(item => item.id === key.id);
-      //   let newKey = key;
-      //   newKey.textContent = keyInModel[lang].textShift;
-      // });
     } else {
       specialShift('text', 'textShift');
     }
@@ -142,12 +153,6 @@ function mouseUpShift(event) {
   if (event.target.id === 'ShiftRight' || event.target.id === 'ShiftLeft') {
     if (!isCaps) {
       regularShift('text');
-      // const keys = [...document.querySelectorAll('.key')];
-      // keys.forEach(key => {
-      //   let keyInModel = keysModel.find(item => item.id === key.id);
-      //   let newKey = key;
-      //   newKey.textContent = keyInModel[lang].text;
-      // });
     } else {
       specialShift('textShift', 'text');
     }
@@ -257,30 +262,25 @@ function pressKeyboard(event) {
   }
 
   if (event.code === 'CapsLock') {
-    const allKeys = [...document.querySelectorAll('.key')];
-    isCaps = !isCaps;
-    if (isCaps) {
-      key.classList.add('active');
-    } else {
-      key.classList.remove('active');
-    }
-    allKeys.forEach(number => {
-      let keyInModel = keysModel.find(item => item.id === number.id);
-      let newKey = number;
-      newKey.textContent = isCaps ? keyInModel[lang].textCaps : keyInModel[lang].text;
-    });
+    regularCaps();
+    // const allKeys = [...document.querySelectorAll('.key')];
+    // isCaps = !isCaps;
+    // if (isCaps) {
+    //   key.classList.add('active');
+    // } else {
+    //   key.classList.remove('active');
+    // }
+    // allKeys.forEach(number => {
+    //   let keyInModel = keysModel.find(item => item.id === number.id);
+    //   let newKey = number;
+    //   newKey.textContent = isCaps ? keyInModel[lang].textCaps : keyInModel[lang].text;
+    // });
     return;
   }
 
   if ((event.code === 'ShiftLeft' || event.code === 'ShiftRight') && !event.altKey) {
     if (!isCaps) {
       regularShift('textShift');
-      // const keys = [...document.querySelectorAll('.key')];
-      // keys.forEach(number => {
-      //   let keyInModel = keysModel.find(item => item.id === number.id);
-      //   let newKey = number;
-      //   newKey.textContent = keyInModel[lang].textShift;
-      // });
     } else {
       specialShift('text', 'textShift');
     }
@@ -342,12 +342,6 @@ function deleteClass(event) {
   if ((event.code === 'ShiftLeft' || event.code === 'ShiftRight')) {
     if (!isCaps) {
       regularShift('text');
-      // const keys = [...document.querySelectorAll('.key')];
-      // keys.forEach(number => {
-      //   let keyInModel = keysModel.find(item => item.id === number.id);
-      //   let newKey = number;
-      //   newKey.textContent = keyInModel[lang].text;
-      // });
     } else {
       specialShift('textShift', 'text');
     }
