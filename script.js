@@ -17,8 +17,7 @@ const setLangLocalStarage = () => {
   localStorage.setItem('lang', lang);
 };
 
-// clicking
-
+// get cursor position
 function getCarPos(item) {
   if (item.selectionStart) return item.selectionStart;
   if (document.selection) {
@@ -29,9 +28,50 @@ function getCarPos(item) {
   return 0;
 }
 
+// set cursor position
 function setCursor() {
   const TA = document.getElementById('textarea');
   cursor = getCarPos(TA);
+}
+
+// ShiftKey
+function specialShift(t1, t2) {
+  const keysChanged = [...document.querySelectorAll('.caps-shift-changed')];
+  const keysNotChanged = [...document.querySelectorAll('.caps-shift-not-changed')];
+  const keysSpecial = [...document.querySelectorAll('.caps-shift-special')];
+  keysNotChanged.forEach(number => {
+    let keyInModel = keysModel.find(item => item.id === number.id);
+    let newKey = number;
+    newKey.textContent = keyInModel[lang][t1];
+  });
+  keysChanged.forEach(number => {
+    let keyInModel = keysModel.find(item => item.id === number.id);
+    let newKey = number;
+    newKey.textContent = keyInModel[lang][t2];
+  });
+  keysSpecial.forEach(number => {
+    let keyInModel = keysModel.find(item => item.id === number.id);
+    let newKey = number;
+    newKey.textContent = lang === 'ru' ? keyInModel[lang][t1] : keyInModel[lang][t2];
+  });
+}
+
+function regularShift(t) {
+  const keys = [...document.querySelectorAll('.key')];
+  keys.forEach(key => {
+    let keyInModel = keysModel.find(item => item.id === key.id);
+    let newKey = key;
+    newKey.textContent = keyInModel[lang][t];
+  });
+}
+
+// clicking
+function clickKey(inner, textarea, numberOfSimbols, content) {
+  inner.splice(cursor, numberOfSimbols, content);
+  let newInner = inner.join('');
+  const TA = textarea;
+  TA.innerHTML = newInner;
+  cursor += 1;
 }
 
 function clickKeyboard(event) {
@@ -45,18 +85,16 @@ function clickKeyboard(event) {
   const keyPressed = allKeys.find(item => item.id === event.target.id);
 
   if (event.target.classList.contains('e-key')) {
-    inner.splice(cursor, 0, keyPressed.textContent);
-    let newInner = inner.join('');
-    textarea.innerHTML = newInner;
-    cursor += 1;
+    clickKey(inner, textarea, 0, keyPressed.textContent);
   } else if (event.target.classList.contains('e-code')) {
     if (keyPressed.id === 'Tab') {
-      textarea.innerHTML += '    ';
+      clickKey(inner, textarea, 0, '    ');
     }
     if (keyPressed.id === 'Backspace') {
-      inner.pop();
+      inner.splice(cursor - 1, 1);
       let newInner = inner.join('');
       textarea.innerHTML = newInner;
+      cursor -= 1;
     }
     if (keyPressed.id === 'Delete') {
       inner.splice(cursor, 1);
@@ -64,7 +102,7 @@ function clickKeyboard(event) {
       textarea.innerHTML = newInner;
     }
     if (keyPressed.id === 'Enter') {
-      textarea.innerHTML += '\n';
+      clickKey(inner, textarea, 0, '\n');
     }
     if (keyPressed.id === 'CapsLock') {
       const keys = [...document.querySelectorAll('.key')];
@@ -87,31 +125,15 @@ function clickKeyboard(event) {
 function mouseDownShift(event) {
   if (event.target.id === 'ShiftRight' || event.target.id === 'ShiftLeft') {
     if (!isCaps) {
-      const keys = [...document.querySelectorAll('.key')];
-      keys.forEach(key => {
-        let keyInModel = keysModel.find(item => item.id === key.id);
-        let newKey = key;
-        newKey.textContent = keyInModel[lang].textShift;
-      });
+      regularShift('textShift');
+      // const keys = [...document.querySelectorAll('.key')];
+      // keys.forEach(key => {
+      //   let keyInModel = keysModel.find(item => item.id === key.id);
+      //   let newKey = key;
+      //   newKey.textContent = keyInModel[lang].textShift;
+      // });
     } else {
-      const keysChanged = [...document.querySelectorAll('.caps-shift-changed')];
-      const keysNotChanged = [...document.querySelectorAll('.caps-shift-not-changed')];
-      const keysSpecial = [...document.querySelectorAll('.caps-shift-special')];
-      keysChanged.forEach(key => {
-        let keyInModel = keysModel.find(item => item.id === key.id);
-        let newKey = key;
-        newKey.textContent = keyInModel[lang].textShift;
-      });
-      keysNotChanged.forEach(key => {
-        let keyInModel = keysModel.find(item => item.id === key.id);
-        let newKey = key;
-        newKey.textContent = keyInModel[lang].text;
-      });
-      keysSpecial.forEach(key => {
-        let keyInModel = keysModel.find(item => item.id === key.id);
-        let newKey = key;
-        newKey.textContent = lang === 'ru' ? keyInModel[lang].text : keyInModel[lang].textShift;
-      });
+      specialShift('text', 'textShift');
     }
   }
 }
@@ -119,35 +141,20 @@ function mouseDownShift(event) {
 function mouseUpShift(event) {
   if (event.target.id === 'ShiftRight' || event.target.id === 'ShiftLeft') {
     if (!isCaps) {
-      const keys = [...document.querySelectorAll('.key')];
-      keys.forEach(key => {
-        let keyInModel = keysModel.find(item => item.id === key.id);
-        let newKey = key;
-        newKey.textContent = keyInModel[lang].text;
-      });
+      regularShift('text');
+      // const keys = [...document.querySelectorAll('.key')];
+      // keys.forEach(key => {
+      //   let keyInModel = keysModel.find(item => item.id === key.id);
+      //   let newKey = key;
+      //   newKey.textContent = keyInModel[lang].text;
+      // });
     } else {
-      const keysChanged = [...document.querySelectorAll('.caps-shift-changed')];
-      const keysNotChanged = [...document.querySelectorAll('.caps-shift-not-changed')];
-      const keysSpecial = [...document.querySelectorAll('.caps-shift-special')];
-      keysNotChanged.forEach(key => {
-        let keyInModel = keysModel.find(item => item.id === key.id);
-        let newKey = key;
-        newKey.textContent = keyInModel[lang].textShift;
-      });
-      keysChanged.forEach(key => {
-        let keyInModel = keysModel.find(item => item.id === key.id);
-        let newKey = key;
-        newKey.textContent = keyInModel[lang].text;
-      });
-      keysSpecial.forEach(key => {
-        let keyInModel = keysModel.find(item => item.id === key.id);
-        let newKey = key;
-        newKey.textContent = lang === 'ru' ? keyInModel[lang].textShift : keyInModel[lang].text;
-      });
+      specialShift('textShift', 'text');
     }
   }
 }
 
+// creating
 function createKey(i) {
   const div = document.createElement('DIV');
   div.id = keysModel[i].id;
@@ -234,15 +241,7 @@ function loader() {
 window.addEventListener('beforeunload', setLangLocalStarage);
 window.addEventListener('load', loader);
 
-// creating
-
-// function textAreaBlur(){
-//     const textarea = document.getElementById("textarea");
-//     textarea.blur()
-// }
-
 // keypress
-
 function pressKeyboard(event) {
   const key = document.getElementById(event.code);
   key.classList.add('active');
@@ -275,34 +274,20 @@ function pressKeyboard(event) {
 
   if ((event.code === 'ShiftLeft' || event.code === 'ShiftRight') && !event.altKey) {
     if (!isCaps) {
-      const keys = [...document.querySelectorAll('.key')];
-      keys.forEach(number => {
-        let keyInModel = keysModel.find(item => item.id === number.id);
-        let newKey = number;
-        newKey.textContent = keyInModel[lang].textShift;
-      });
+      regularShift('textShift');
+      // const keys = [...document.querySelectorAll('.key')];
+      // keys.forEach(number => {
+      //   let keyInModel = keysModel.find(item => item.id === number.id);
+      //   let newKey = number;
+      //   newKey.textContent = keyInModel[lang].textShift;
+      // });
     } else {
-      const keysChanged = [...document.querySelectorAll('.caps-shift-changed')];
-      const keysNotChanged = [...document.querySelectorAll('.caps-shift-not-changed')];
-      const keysSpecial = [...document.querySelectorAll('.caps-shift-special')];
-      keysChanged.forEach(number => {
-        let keyInModel = keysModel.find(item => item.id === number.id);
-        let newKey = number;
-        newKey.textContent = keyInModel[lang].textShift;
-      });
-      keysNotChanged.forEach(number => {
-        let keyInModel = keysModel.find(item => item.id === number.id);
-        let newKey = number;
-        newKey.textContent = keyInModel[lang].text;
-      });
-      keysSpecial.forEach(number => {
-        let keyInModel = keysModel.find(item => item.id === number.id);
-        let newKey = number;
-        newKey.textContent = lang === 'ru' ? keyInModel[lang].text : keyInModel[lang].textShift;
-      });
+      specialShift('text', 'textShift');
     }
     return;
   }
+
+  setCursor();
 
   if (event.code === 'Enter') {
     textarea.innerHTML += '\n';
@@ -356,31 +341,15 @@ function deleteClass(event) {
 
   if ((event.code === 'ShiftLeft' || event.code === 'ShiftRight')) {
     if (!isCaps) {
-      const keys = [...document.querySelectorAll('.key')];
-      keys.forEach(number => {
-        let keyInModel = keysModel.find(item => item.id === number.id);
-        let newKey = number;
-        newKey.textContent = keyInModel[lang].text;
-      });
+      regularShift('text');
+      // const keys = [...document.querySelectorAll('.key')];
+      // keys.forEach(number => {
+      //   let keyInModel = keysModel.find(item => item.id === number.id);
+      //   let newKey = number;
+      //   newKey.textContent = keyInModel[lang].text;
+      // });
     } else {
-      const keysChanged = [...document.querySelectorAll('.caps-shift-changed')];
-      const keysNotChanged = [...document.querySelectorAll('.caps-shift-not-changed')];
-      const keysSpecial = [...document.querySelectorAll('.caps-shift-special')];
-      keysNotChanged.forEach(number => {
-        let keyInModel = keysModel.find(item => item.id === number.id);
-        let newKey = number;
-        newKey.textContent = keyInModel[lang].textShift;
-      });
-      keysChanged.forEach(number => {
-        let keyInModel = keysModel.find(item => item.id === number.id);
-        let newKey = number;
-        newKey.textContent = keyInModel[lang].text;
-      });
-      keysSpecial.forEach(number => {
-        let keyInModel = keysModel.find(item => item.id === number.id);
-        let newKey = number;
-        newKey.textContent = lang === 'ru' ? keyInModel[lang].textShift : keyInModel[lang].text;
-      });
+      specialShift('textShift', 'text');
     }
   }
 }
