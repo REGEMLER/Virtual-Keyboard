@@ -19,7 +19,7 @@ body{
 }
 
 .content{
-    width: 70%;
+    width: 80%;
     height: 100vh;
     margin: 0 auto;
     padding: 20px 100px;
@@ -135,7 +135,7 @@ body{
 
 @media screen and (max-width: 1280px){
     .content{
-        padding: 20px 100px;
+        padding: 20px 80px;
     }
     #Space{
         width: 300px;
@@ -144,8 +144,8 @@ body{
 
 @media screen and (max-width: 1024px){
     .content{
-        width: 80%;
-        padding: 20px 70px;
+        width: 90%;
+        padding: 20px 50px;
     }
     #Space{
         width: 250px;
@@ -155,10 +155,32 @@ body{
 @media screen and (max-width: 820px){
     .content{
         width: 90%;
-        padding: 20px 50px;
+        padding: 20px 30px;
     }
     #Space{
-        width: 250px;
+        width: 200px;
+    }
+    #Backspace{
+        width: 80px;
+    }
+    
+    #Tab,
+    #Delete{
+        width: 40px;
+    }
+    
+    #CapsLock,
+    #Enter,
+    #ShiftLeft,
+    #ShiftRight{
+        width: 80px;
+    }
+    
+    #ControlLeft,
+    #AltLeft,
+    #AltRight,
+    #ControlRight{
+        width: 60px;
     }
 }
 
