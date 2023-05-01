@@ -22,7 +22,7 @@ body{
     width: 70%;
     height: 100vh;
     margin: 0 auto;
-    padding: 20px 130px;
+    padding: 20px 100px;
     display: flex;
     flex-direction: column;
 }
