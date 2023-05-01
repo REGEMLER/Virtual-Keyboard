@@ -1,0 +1,195 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+}
+
+body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.wrapper{
+    width: 100%;
+    height: 100vh;
+    margin: 0 auto;
+    background-color: #d3c9d7;
+    overflow: hidden;
+}
+
+.content{
+    width: 80%;
+    height: 100vh;
+    margin: 0 auto;
+    padding: 20px 100px;
+    display: flex;
+    flex-direction: column;
+}
+
+.title{
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 30px;
+    color: #29113d;
+}
+
+.textarea {
+    display: block;
+    width: 100%;
+    height: 150px;
+    margin: 10px auto;
+    padding: 10px;
+    font-size: 18px;
+    color: #444444
+}
+
+.keyboard{
+    width: 100%;
+    margin: 20px auto;
+    padding: 20px;
+    background: #888888;
+    border: 3px solid #070606;
+    border-radius: 5px
+}
+
+.keyboard-row{
+    width: 100%;
+    height: 40px;
+    margin-bottom: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.key{
+    width: 40px;
+    height: 40px;
+    font-weight: 500;
+    line-height: 40px;
+    text-align: center;
+    color: #000;
+    background-color: #ebdfec;
+    border-radius: 3px;
+    cursor: pointer;
+    user-select: none;
+    box-shadow: 3px 3px 0 #000;
+    transition: border-radius 0.5s, background-color 0.5s, box-shadow 0.5s, color 0.5s;
+}
+
+.gray{
+    background-color: rgb(83, 74, 74);
+}
+
+#Backspace{
+    width: 120px;
+}
+
+#Tab,
+#Delete{
+    width: 60px;
+}
+
+#CapsLock,
+#Enter,
+#ShiftLeft,
+#ShiftRight{
+    width: 100px;
+}
+
+#ControlLeft,
+#AltLeft,
+#AltRight,
+#ControlRight{
+    width: 60px;
+}
+
+#Space{
+    width: 320px;
+}
+
+.key:hover{
+    border-radius: 4px;
+    background-color: #29113d;
+}
+
+.active{
+    border-radius: 7px;
+    color: white;
+    background-color: #000;
+    box-shadow: 0 0 0 #000; 
+}
+
+.key:active {
+    border-radius: 7px;
+    color: white;
+    background-color: #000;
+    box-shadow: 0 0 0 #000;
+}
+
+.text{
+    font-size: 20px;
+    text-align: center;
+    color: #1a062b;
+}
+
+@media screen and (max-width: 1280px){
+    .content{
+        padding: 20px 80px;
+    }
+    #Space{
+        width: 300px;
+    }
+}
+
+@media screen and (max-width: 1024px){
+    .content{
+        width: 90%;
+        padding: 20px 50px;
+    }
+    #Space{
+        width: 250px;
+    }
+}
+
+@media screen and (max-width: 820px){
+    .content{
+        width: 90%;
+        padding: 20px 30px;
+    }
+    #Space{
+        width: 200px;
+    }
+    #Backspace{
+        width: 80px;
+    }
+    
+    #Tab,
+    #Delete{
+        width: 40px;
+    }
+    
+    #CapsLock,
+    #Enter,
+    #ShiftLeft,
+    #ShiftRight{
+        width: 80px;
+    }
+    
+    #ControlLeft,
+    #AltLeft,
+    #AltRight,
+    #ControlRight{
+        width: 60px;
+    }
+}
+
+@media screen and (max-width: 520px){
+    .content{
+        width: 95%;
+        padding: 20px;
+    }
+    #Space{
+        width: 200px;
+    }
+}
